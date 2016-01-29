@@ -4,7 +4,6 @@ const compiler = require("webpack")(config);
 
 const server = new WebpackDevServer(compiler, {
   contentBase: 'www',
-  publicPath: config.output.path,
   hot: true,
   quiet: false,
   noInfo: false,
