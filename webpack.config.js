@@ -3,9 +3,9 @@ const webpack = require("webpack");
 const path = require("path");
 const absolute = (relPath) => path.join(__dirname, relPath);
 
-const srcDir = "./src";
-const srcPath = "./src/main.js";
-const distDir = "./www";
+const srcDir = absolute("./src");
+const srcPath = absolute("./src/main.js");
+const distDir = absolute("./www");
 const distFilename = "main.js"
 
 // TODO: config
@@ -28,6 +28,7 @@ module.exports = {
       "actions": absolute("./src/actions"),
       "constants": absolute("./src/constants"),
       "lib": absolute("./src/lib"),
+      "strings": absolute("./src/strings"),
       "tests": absolute("./tests")
     }
   },
@@ -41,27 +42,34 @@ module.exports = {
       },
       {
         test:    /\.jsx?$/,
-        exclude: [/node_modules/, /platform-placeholder\.js/],
+        exclude: /node_modules/,
         loader: "jscs"
       }
     ],
-    loaders: [{
-      test: /\.jsx?$/,
-      include: /.\/(src|tests)\//,
-      loader: "babel",
-      query: {
-        // presets: ["es2015", "react", {
-        //   plugins: ["transform-object-rest-spread"]
-        // }]
-        presets: ["react", {
-          plugins: [
-            "transform-es2015-destructuring",
-            "transform-es2015-parameters",
-            "transform-strict-mode"
-          ]
-        }]
+    loaders: [
+      {
+        test: /\.json$/,
+        include: /.\/(src|tests)\//,
+        loader: "json"
+      },
+      {
+        test: /\.jsx?$/,
+        include: /.\/(src|tests)\//,
+        loader: "babel",
+        query: {
+          // presets: ["es2015", "react", {
+          //   plugins: ["transform-object-rest-spread"]
+          // }]
+          presets: ["react", {
+            plugins: [
+              "transform-es2015-destructuring",
+              "transform-es2015-parameters",
+              "transform-strict-mode"
+            ]
+          }]
+        }
       }
-    }]
+    ]
   },
   plugins: [
     new WebpackNotifierPlugin(),

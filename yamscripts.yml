@@ -16,7 +16,7 @@ scripts:
   start:
     _parallel: true
     css: '=>bundle:css && =>bundle:css -- --source-map www/main.css.map -w -r'
-    js: 'webpack-dev-server --hot --port=1989 --content-base www'
+    js: 'node server.js'
 
   # test: Run tests once
   test:

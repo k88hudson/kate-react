@@ -7,12 +7,12 @@
   "author": "k88hudson",
   "repository": "https://github.com/k88hudson/kate-react",
   "dependencies": {
-    "classnames": "2.2.1",
-    "react": "^0.14.6",
+    "classnames": "2.2.3",
+    "react": "0.14.7",
     "react-dom": "0.14.3",
     "react-intl": "2.0.0-beta-2",
     "react-redux": "4.1.2",
-    "redux": "3.1.0",
+    "redux": "3.1.4",
     "redux-logger": "2.2.1",
     "redux-thunk": "1.0.3"
   },
@@ -45,6 +45,7 @@
     "jscs": "^2.8.0",
     "jscs-loader": "^0.2.0",
     "jshint": "^2.8.0",
+    "json-loader": "^0.5.4",
     "karma": "^0.13.15",
     "karma-chai": "^0.1.0",
     "karma-chai-as-promised": "^0.1.2",
@@ -71,7 +72,7 @@
     "redux-mock-store": "0.0.3",
     "requirejs": "^2.1.20",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0",
+    "webpack-dev-server": "^1.14.1",
     "webpack-notifier": "^1.2.1"
   },
   "scripts": {
@@ -84,7 +85,7 @@
     "bundle:css": "node-sass src/main.scss -o www",
     "start": "npm-run-all --parallel start:*",
     "start:css": "npm run bundle:css && npm run bundle:css -- --source-map www/main.css.map -w -r",
-    "start:js": "webpack-dev-server --hot --port=1989 --content-base www",
+    "start:js": "node server.js",
     "test": "npm-run-all test:*",
     "test:karma": "karma start",
     "test:mocha": "mocha ./tests-node -R spec",
@@ -95,5 +96,5 @@
     "help": "yamscripts help",
     "yamscripts": "yamscripts compile",
     "__": "# NOTE: THESE SCRIPTS ARE COMPILED!!! EDIT yamscripts.yml instead!!!"
-  },
+  }
 }
