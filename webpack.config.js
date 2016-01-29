@@ -44,19 +44,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: /.\/(src|tests)\//,
-        loader: "babel",
-        query: {
-          // presets: ["es2015", "react", {
-          //   plugins: ["transform-object-rest-spread"]
-          // }]
-          presets: ["react", {
-            plugins: [
-              "transform-es2015-destructuring",
-              "transform-es2015-parameters",
-              "transform-strict-mode"
-            ]
-          }]
-        }
+        loader: "babel"
       }
     ]
   },
