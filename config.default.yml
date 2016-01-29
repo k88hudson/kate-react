@@ -1,2 +1,4 @@
+# Copy this to config.yml if you want to override it
+
 DEVELOPMENT: true
 LOGGING: false

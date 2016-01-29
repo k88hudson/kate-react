@@ -3,6 +3,8 @@ const {FormattedMessage} = require("react-intl");
 
 module.exports = (props) => {
   return (<div>
-    <FormattedMessage id="hello_world" />
+    <FormattedMessage
+      id="hello_world"
+      defaultMessage="Hello world!" />
   </div>);
 };
