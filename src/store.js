@@ -17,6 +17,5 @@ if (__CONFIG__.LOGGING) {
 
 module.exports = redux.createStore(
   redux.combineReducers(reducers),
-  {},
-  redux.applyMiddleware([...middleware])
+  redux.applyMiddleware(...middleware)
 );
