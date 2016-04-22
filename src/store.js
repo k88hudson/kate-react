@@ -1,6 +1,6 @@
 const redux = require("redux");
 const thunk = require("redux-thunk");
-const reducers = require("reducers/index");
+const reducers = require("reducers/reducers");
 
 const middleware = [
   thunk
