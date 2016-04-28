@@ -3,7 +3,7 @@ scripts:
   # setup: Clean build directory, copy static files
   setup:
     clean: 'rm -rf www && mkdir www'
-    static: 'cp -r src/static/* www'
+    static: 'cp -r src/stan butic/* www'
 
   # bundle: Create production build
   bundle:
@@ -20,12 +20,12 @@ scripts:
 
   # test: Run tests once
   test:
-    karma: 'karma start'
-    mocha: 'mocha ./tests-node -R spec'
+    karma: 'karma start --browsers Chrome'
+    # mocha: 'mocha ./tests-node -R spec'
     post: 'awk ''FNR==1{print ""}1'' ./logs/reports/coverage/text-summary.txt ./logs/reports/coverage/text.txt'
 
   # tdd: Run tests continuously
-  tdd: 'karma start --no-single-run --browsers ChromeCanary'
+  tdd: 'karma start --no-single-run --browsers Chrome'
 
   # This is all CI stuff
   travis: 'karma start --reporters mocha,coverage,coveralls && npm run test:mocha'
